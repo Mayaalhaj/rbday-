@@ -140,7 +140,9 @@ pointer-events:none;
 
 <div id="instruction">Blow the candles 💨</div>
 
-<div id="message">🎉 Happy Birthday! 🎆</div>
+<div id="message">🎉 Happy Birthday Mr. Hatem Alhakim! 🎂🎆</div>
+
+<audio id="song" src="birthday.mp3"></audio>
 
 <canvas id="confetti"></canvas>
 
@@ -221,16 +223,16 @@ let flames=document.querySelectorAll(".flame")
 flames.forEach((f,i)=>{
 
 setTimeout(()=>{
-
 f.style.opacity=0
 f.style.transform="scale(0)"
-
 },i*300)
 
 })
 
 document.getElementById("instruction").style.display="none"
 document.getElementById("message").style.display="block"
+
+document.getElementById("song").play()
 
 confetti()
 fireworks()
