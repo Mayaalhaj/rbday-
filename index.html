@@ -49,20 +49,26 @@ background:#ff7fb2;
 border-radius:20px;
 }
 
+/* candle holder to center candles */
+
+.candle-holder{
+position:absolute;
+top:-40px;
+width:100%;
+display:flex;
+justify-content:center;
+gap:25px;
+}
+
 /* candles */
 
 .candle{
-position:absolute;
 width:8px;
 height:32px;
 background:#ffd84d;
-top:-40px;
 border-radius:3px;
+position:relative;
 }
-
-.candle:nth-child(1){left:30px;}
-.candle:nth-child(2){left:70px;}
-.candle:nth-child(3){left:110px;}
 
 /* flame */
 
@@ -116,11 +122,14 @@ pointer-events:none;
 <div id="cake">
 
 <div class="layer" id="layer3">
+
 <div class="frost"></div>
 
+<div class="candle-holder">
 <div class="candle"><div class="flame"></div></div>
 <div class="candle"><div class="flame"></div></div>
 <div class="candle"><div class="flame"></div></div>
+</div>
 
 </div>
 
@@ -221,7 +230,6 @@ f.style.transform="scale(0)"
 document.getElementById("message").style.display="block"
 
 confetti()
-
 fireworks()
 
 }
@@ -231,7 +239,6 @@ fireworks()
 function confetti(){
 
 const canvas=document.getElementById("confetti")
-
 const ctx=canvas.getContext("2d")
 
 canvas.width=window.innerWidth
@@ -257,7 +264,6 @@ ctx.clearRect(0,0,canvas.width,canvas.height)
 pieces.forEach(p=>{
 
 ctx.fillStyle=`hsl(${Math.random()*360},100%,50%)`
-
 ctx.fillRect(p.x,p.y,p.size,p.size)
 
 p.y+=p.speed
@@ -279,7 +285,6 @@ update()
 function fireworks(){
 
 const canvas=document.getElementById("confetti")
-
 const ctx=canvas.getContext("2d")
 
 setInterval(()=>{
@@ -300,7 +305,6 @@ Math.PI*2
 )
 
 ctx.fillStyle=`hsl(${Math.random()*360},100%,50%)`
-
 ctx.fill()
 
 }
