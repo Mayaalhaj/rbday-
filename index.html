@@ -26,8 +26,6 @@ width:160px;
 margin:80px auto;
 }
 
-/* cake layers */
-
 .layer{
 width:160px;
 height:40px;
@@ -49,8 +47,6 @@ background:#ff7fb2;
 border-radius:20px;
 }
 
-/* candle holder to center candles */
-
 .candle-holder{
 position:absolute;
 top:-40px;
@@ -60,8 +56,6 @@ justify-content:center;
 gap:25px;
 }
 
-/* candles */
-
 .candle{
 width:8px;
 height:32px;
@@ -69,8 +63,6 @@ background:#ffd84d;
 border-radius:3px;
 position:relative;
 }
-
-/* flame */
 
 .flame{
 position:absolute;
@@ -99,6 +91,12 @@ color:white;
 cursor:pointer;
 }
 
+#instruction{
+display:none;
+font-size:22px;
+margin-top:15px;
+}
+
 #message{
 display:none;
 font-size:28px;
@@ -117,7 +115,7 @@ pointer-events:none;
 
 <body>
 
-<h1>Blow the candles 🎂</h1>
+<h1>Birthday Cake 🎂</h1>
 
 <div id="cake">
 
@@ -139,6 +137,8 @@ pointer-events:none;
 </div>
 
 <button onclick="startListening()">Blow 💨</button>
+
+<div id="instruction">Blow the candles 💨</div>
 
 <div id="message">🎉 Happy Birthday! 🎆</div>
 
@@ -175,6 +175,8 @@ animateCake()
 /* microphone detection */
 
 async function startListening(){
+
+document.getElementById("instruction").style.display="block"
 
 const stream=await navigator.mediaDevices.getUserMedia({audio:true})
 
@@ -227,6 +229,7 @@ f.style.transform="scale(0)"
 
 })
 
+document.getElementById("instruction").style.display="none"
 document.getElementById("message").style.display="block"
 
 confetti()
